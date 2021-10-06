@@ -1,0 +1,111 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+  <main id="main">
+
+
+
+
+    <!-- ======= Skills Section ======= -->
+      <section id="team" class="team section-bg">
+
+<div class="container">
+            <div class="row mt-3">
+                <div class="col-md-9 mx-auto mb-5">
+                    <br>
+                    <br>
+                    <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+                        <h3 class="mb-4">Solicitud de Cita</h3>
+                        <h5 class="mb-4">Cita con {{ nombre_especialista }} {{ apellido_especialista }} para el día:</h5>
+                        {{ form.fecha.errors }}
+                        {{ form.fecha }}
+                        <input type="hidden"  value = {{ idCliente }} name='idCliente' >
+                        <input type="hidden"  value = {{ idEspecialista }} name='idEspecialista' >
+                        <p><input type="submit" class="btn btn-primary btn-block" value="Actualizar"></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </section><!-- End Skills Section -->
+
+
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Contacto</h2>
+          <h3><span>Contáctenos</span></h3>
+          <p>Estaremos encantados de responder lo antes posible</p>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-6">
+            <div class="info-box mb-4">
+              <i class="bx bx-map"></i>
+              <h3>Dirección</h3>
+              <p>C/ Pascual y Genis 10 7ºC, 46002 Valencia</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-box  mb-4">
+              <i class="bx bx-envelope"></i>
+              <h3>Email</h3>
+              <p>info@apfsvalencia.com</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-box  mb-4">
+              <i class="bx bx-phone-call"></i>
+              <h3>Teléfonos</h3>
+              <p>+34 963942908</p>
+              <p>+34 629518184</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="col-lg-6 ">
+        <iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=pascual%20y%20genis%2010%207%C2%BAc&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>          </div>
+
+          <div class="col-lg-6">
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="row">
+                <div class="col form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" required>
+                </div>
+                <div class="col form-group">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto" required>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" name="message" rows="5" placeholder="Mensaje" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Cargando</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Mensaje enviado. Gracias!</div>
+              </div>
+              <div class="text-center"><button type="submit">Enviar mensaje</button></div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+{% endblock content %}
